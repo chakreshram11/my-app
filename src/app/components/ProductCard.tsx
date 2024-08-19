@@ -18,8 +18,8 @@ export default function ProductCard({ product, cartIconRef }: ProductCardProps) 
       const productImagePos = productImageRef.current.getBoundingClientRect();
       const cartIconPos = cartIconRef.current.getBoundingClientRect();
   
-      const translateX = cartIconPos.left - productImagePos.left;
-      const translateY = cartIconPos.top - productImagePos.top;
+      const translateX = cartIconPos.left - productImagePos.left-100;
+      const translateY = cartIconPos.top - productImagePos.top-110;
   
       // Create a clone of the image for animation
       const cloneImage = productImageRef.current.cloneNode(true) as HTMLImageElement;
@@ -33,13 +33,13 @@ export default function ProductCard({ product, cartIconRef }: ProductCardProps) 
       cloneImage.style.height = `${productImagePos.height}px`;
       cloneImage.style.transition = 'transform 0.8s ease-in-out, opacity 0.8s ease-in-out';
       cloneImage.style.zIndex = '1000';
-      cloneImage.style.borderRadius = '50%'; // Circle shape for the animation
+      cloneImage.style.borderRadius = '100%'; // Circle shape for the animation
   
       // Trigger the animation after the clone has been added to the DOM
       setTimeout(() => {
         cloneImage.style.transform = `translate(${translateX}px, ${translateY}px) scale(0.2)`;
         cloneImage.style.opacity = '0.5';
-      }, 10); // Small delay to ensure the transition applies correctly
+      }, 100); // Small delay to ensure the transition applies correctly
   
       // Clean up after the animation ends
       cloneImage.addEventListener('transitionend', () => {
