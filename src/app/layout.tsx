@@ -1,34 +1,3 @@
-// "use client";
-
-// import { useRef } from 'react';
-// import { Inter } from "next/font/google";
-// import "./globals.css";
-// import Header from './components/Header';
-// import Footer from "./components/Footer";
-// import { CartProvider } from '../app/CartContext';
-
-// const inter = Inter({ subsets: ["latin"] });
-
-// export default function RootLayout({
-//   children,
-// }: Readonly<{
-//   children: React.ReactNode;
-// }>) {
-//   const cartIconRef = useRef<HTMLAnchorElement>(null);
-
-//   return (
-//     <html lang="en">
-//       <body className={`${inter.className} flex flex-col min-h-screen`}>
-//         <CartProvider>
-//           <Header />
-//           <main className="flex-grow">{children}</main>
-//           <Footer cartIconRef={cartIconRef} />
-//         </CartProvider>
-//       </body>
-//     </html>
-//   );
-// }
-
 "use client";
 
 import { useRef, useState } from 'react';
@@ -56,7 +25,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} flex flex-col min-h-screen`}>
         <CartProvider>
-          {pathname !== '/cart' && <Header />}
+          {pathname !== '/cart' && <Header />}  
           <main className="flex-grow">
             {children}
             {isCartOpen && <CartPage onClose={() => setIsCartOpen(false)} />}
